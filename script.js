@@ -21,7 +21,7 @@ function generatePassword(){
   var useLetterUp = confirm("Should your password include uppercase letters?")
   var useNumeric = confirm("Should your password include numeric characters?")
   var useSpecial = confirm("Should your password include special characters?")
-
+  //error alert
   if (!useLetterLow && !useLetterUp && !useNumeric && !useSpecial){
     alert("At least one character type must be selected.")
     return "";
@@ -40,7 +40,6 @@ function generatePassword(){
   if (useSpecial) {
     character += charSpecial;
   }
-
   //password generating forloop
   var password = "";
   for (var i = 0; i < passLength; i++) {
@@ -54,9 +53,7 @@ function generatePassword(){
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-  
   passwordText.value = password;
-
 }
 
 
