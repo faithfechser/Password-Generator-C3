@@ -26,35 +26,35 @@ function generatePassword(){
     alert("At least one character type must be selected.")
     return "";
   }
+  // turning character types into strings
+  var character = "";
+  if (useLetterLow) {
+    character += charLetterLow;
+  }
+  if (useLetterUp) {
+    character += charLetterUp;
+  }
+  if (useNumeric) {
+    character += charNumeric;
+  }
+  if (useSpecial) {
+    character += charSpecial;
+  }
+
+  //password generating forloop
+  var password = "";
+  for (var i = 0; i < passLength; i++) {
+    password += character.charAt(Math.floor(Math.random() * character.length));
+  }
+  return password;
 }
 
-// turning character types into strings
-var character = "";
-if (useLetterLow) {
-  character += charLetterLow;
-}
-if (useLetterUp) {
-  character += charLetterUp;
-}
-if (useNumeric) {
-  character += charNumeric;
-}
-if (useSpecial) {
-  character += charSpecial;
-}
-
-//password generating forloop
-var password = "";
-for (var i = 0; i < passwordLength; i++) {
-  password += character.charAt(Math.floor(Math.random() * character.length));
-}
-return password;
 
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
+  
   passwordText.value = password;
 
 }
